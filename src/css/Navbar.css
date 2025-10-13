@@ -631,6 +631,8 @@
   .professional-sidebar {
     width: 100%;
     right: -100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   .professional-sidebar .sidebar-content {

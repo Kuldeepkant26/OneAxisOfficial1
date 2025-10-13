@@ -46,13 +46,13 @@
 }
 
 /* Left Content */
-.websaas-left {
+.websaas-section .websaas-left {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-.websaas-main-title {
+.websaas-section .websaas-main-title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   color: #1a1a1a;
@@ -61,7 +61,7 @@
   letter-spacing: -0.02em;
 }
 
-.websaas-main-title .gradient-accent {
+.websaas-section .websaas-main-title .gradient-accent {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -72,26 +72,26 @@
   color: #ffffff;
 }
 
-.websaas-features-list {
+.websaas-section .websaas-features-list {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.websaas-feature-item {
+.websaas-section .websaas-feature-item {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.feature-title {
+.websaas-section .feature-title {
   font-size: 1.25rem;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
 }
 
-.feature-title .gradient-accent {
+.websaas-section .feature-title .gradient-accent {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -102,14 +102,14 @@
   color: #ffffff;
 }
 
-.feature-description {
+.websaas-section .feature-description {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #6b6b6b;
   margin: 0;
 }
 
-.feature-description .gradient-accent {
+.websaas-section .feature-description .gradient-accent {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -122,7 +122,7 @@
 }
 
 /* Center - Laptop Mockup */
-.websaas-center {
+.websaas-section .websaas-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,7 +131,7 @@
   perspective: 1200px;
 }
 
-.laptop-mockup {
+.websaas-section .laptop-mockup {
   width: 100%;
   max-width: 600px;
   position: relative;
@@ -139,12 +139,12 @@
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.laptop-mockup:hover {
+.websaas-section .laptop-mockup:hover {
   transform: translateZ(30px) rotateX(5deg);
 }
 
 /* Browser Window */
-.browser-window {
+.websaas-section .browser-window {
   width: 100%;
   background: #ffffff;
   border-radius: 12px 12px 0 0;
@@ -158,7 +158,7 @@
   transition: box-shadow 0.6s ease;
 }
 
-.laptop-mockup:hover .browser-window {
+.websaas-section .laptop-mockup:hover .browser-window {
   box-shadow: 
     0 8px 20px rgba(0, 0, 0, 0.15),
     0 20px 50px rgba(0, 0, 0, 0.2),
@@ -175,7 +175,7 @@
 }
 
 /* Browser Header */
-.browser-header {
+.websaas-section .browser-header {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -201,35 +201,35 @@
   border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
-.browser-controls {
+.websaas-section .browser-controls {
   display: flex;
   gap: 0.5rem;
 }
 
-.control-dot {
+.websaas-section .control-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
-.control-dot:hover {
+.websaas-section .control-dot:hover {
   transform: scale(1.2);
 }
 
-.control-dot.red {
+.websaas-section .control-dot.red {
   background: #ff5f57;
 }
 
-.control-dot.yellow {
+.websaas-section .control-dot.yellow {
   background: #ffbd2e;
 }
 
-.control-dot.green {
+.websaas-section .control-dot.green {
   background: #28ca42;
 }
 
-.browser-address-bar {
+.websaas-section .browser-address-bar {
   flex: 1;
   display: flex;
   align-items: center;
@@ -245,12 +245,12 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-.lock-icon {
+.websaas-section .lock-icon {
   color: #28ca42;
   font-size: 0.9rem;
 }
 
-.url-text {
+.websaas-section .url-text {
   font-size: 0.85rem;
   color: #666666;
 }
@@ -259,13 +259,13 @@
   color: #a0a0a0;
 }
 
-.browser-menu {
+.websaas-section .browser-menu {
   color: #666666;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
-.browser-menu:hover {
+.websaas-section .browser-menu:hover {
   color: #333333;
 }
 
@@ -274,7 +274,7 @@
 }
 
 /* Browser Content */
-.browser-content {
+.websaas-section .browser-content {
   padding: 2rem;
   background: #fafafa;
   min-height: 400px;
@@ -299,13 +299,13 @@
   background: #16161f;
 }
 
-.dashboard-header {
+.websaas-section .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.dashboard-title {
+.websaas-section .dashboard-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -316,7 +316,7 @@
   color: #ffffff;
 }
 
-.dashboard-btn {
+.websaas-section .dashboard-btn {
   padding: 0.5rem 1.2rem;
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 100%);
   border: none;
@@ -328,19 +328,19 @@
   transition: all 0.3s ease;
 }
 
-.dashboard-btn:hover {
+.websaas-section .dashboard-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 154, 118, 0.4);
 }
 
 /* Dashboard Stats */
-.dashboard-stats {
+.websaas-section .dashboard-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
-.stat-card {
+.websaas-section .stat-card {
   background: #ffffff;
   padding: 1.2rem;
   border-radius: 12px;
@@ -352,7 +352,7 @@
   cursor: pointer;
 }
 
-.stat-card:hover {
+.websaas-section .stat-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -362,7 +362,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.stat-icon {
+.websaas-section .stat-icon {
   width: 40px;
   height: 40px;
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 100%);
@@ -374,14 +374,14 @@
   font-size: 1.2rem;
 }
 
-.stat-info {
+.websaas-section .stat-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.stat-title {
+.websaas-section .stat-title {
   font-size: 0.8rem;
   color: #666666;
   font-weight: 500;
@@ -392,13 +392,13 @@
   color: #a0a0a0;
 }
 
-.stat-value-row {
+.websaas-section .stat-value-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.stat-value {
+.websaas-section .stat-value {
   font-size: 1.3rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -408,14 +408,14 @@
   color: #ffffff;
 }
 
-.stat-trend {
+.websaas-section .stat-trend {
   font-size: 0.8rem;
   color: #28ca42;
   font-weight: 600;
 }
 
 /* Dashboard Chart */
-.dashboard-chart {
+.websaas-section .dashboard-chart {
   background: #ffffff;
   padding: 1.5rem;
   border-radius: 12px;
@@ -430,13 +430,13 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.chart-header {
+.websaas-section .chart-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.chart-title {
+.websaas-section .chart-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: #1a1a1a;
@@ -447,12 +447,12 @@
   color: #ffffff;
 }
 
-.chart-legend {
+.websaas-section .chart-legend {
   display: flex;
   gap: 1.5rem;
 }
 
-.legend-item {
+.websaas-section .legend-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -464,21 +464,21 @@
   color: #a0a0a0;
 }
 
-.legend-dot {
+.websaas-section .legend-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
 
-.legend-dot.primary {
+.websaas-section .legend-dot.primary {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 100%);
 }
 
-.legend-dot.secondary {
+.websaas-section .legend-dot.secondary {
   background: linear-gradient(135deg, #7e9aff 0%, #9ab4ff 100%);
 }
 
-.chart-bars {
+.websaas-section .chart-bars {
   display: flex;
   gap: 2rem;
   align-items: flex-end;
@@ -487,14 +487,14 @@
   padding: 1rem 0;
 }
 
-.bar-group {
+.websaas-section .bar-group {
   display: flex;
   gap: 0.5rem;
   align-items: flex-end;
   flex: 1;
 }
 
-.bar {
+.websaas-section .bar {
   flex: 1;
   min-width: 30px;
   border-radius: 6px 6px 0 0;
@@ -512,23 +512,23 @@
   }
 }
 
-.bar.primary {
+.websaas-section .bar.primary {
   background: linear-gradient(180deg, #ff7e9a 0%, #ff9a76 100%);
   animation-delay: 0.4s;
 }
 
-.bar.secondary {
+.websaas-section .bar.secondary {
   background: linear-gradient(180deg, #7e9aff 0%, #9ab4ff 100%);
   animation-delay: 0.5s;
 }
 
-.bar:hover {
+.websaas-section .bar:hover {
   transform: scaleY(1.05);
   filter: brightness(1.1);
 }
 
 /* Laptop Base */
-.laptop-base {
+.websaas-section .laptop-base {
   width: 110%;
   height: 15px;
   background: linear-gradient(180deg, #d0d0d0 0%, #a0a0a0 100%);
@@ -545,14 +545,14 @@
 }
 
 /* Right Content */
-.websaas-right {
+.websaas-section .websaas-right {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: flex-start;
 }
 
-.websaas-secondary-title {
+.websaas-section .websaas-secondary-title {
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: #1a1a1a;
@@ -564,14 +564,14 @@
   color: #ffffff;
 }
 
-.websaas-secondary-description {
+.websaas-section .websaas-secondary-description {
   font-size: 0.9rem;
   line-height: 1.7;
   color: #6b6b6b;
   margin: 0;
 }
 
-.websaas-secondary-description .gradient-accent {
+.websaas-section .websaas-secondary-description .gradient-accent {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -583,7 +583,7 @@
   color: #a0a0a0;
 }
 
-.websaas-learn-more {
+.websaas-section .websaas-learn-more {
   padding: 1rem 2.5rem;
   background: transparent;
   border: 2px solid #1a1a1a;
@@ -596,7 +596,7 @@
   text-transform: capitalize;
 }
 
-.websaas-learn-more:hover {
+.websaas-section .websaas-learn-more:hover {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 100%);
   border-color: transparent;
   color: #ffffff;
@@ -622,13 +622,17 @@
     padding: 0 3rem;
   }
 
-  .websaas-left,
-  .websaas-right {
+  .websaas-section .section-header-center {
+    margin-bottom: 0rem;
+  }
+
+  .websaas-section .websaas-left,
+  .websaas-section .websaas-right {
     text-align: center;
     align-items: center;
   }
 
-  .laptop-mockup {
+  .websaas-section .laptop-mockup {
     max-width: 550px;
   }
 }
@@ -643,58 +647,92 @@
     gap: 3rem;
   }
 
-  .websaas-main-title {
+  .websaas-section .section-header-center {
+    margin-bottom: 0.5rem;
+  }
+
+  .websaas-section .websaas-main-title {
     font-size: clamp(1.8rem, 6vw, 2.5rem);
   }
 
-  .websaas-secondary-title {
+  .websaas-section .websaas-secondary-title {
     font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
-  .laptop-mockup {
+  .websaas-section .laptop-mockup {
     max-width: 100%;
   }
 
-  .browser-content {
+  .websaas-section .browser-content {
     padding: 1.5rem;
     min-height: 350px;
   }
 
-  .dashboard-stats {
+  .websaas-section .dashboard-stats {
     grid-template-columns: 1fr;
   }
 
-  .chart-bars {
+  .websaas-section .chart-bars {
     height: 120px;
+    gap: 1rem;
   }
 
-  .feature-title {
+  .websaas-section .feature-title {
     font-size: 1.1rem;
   }
 
-  .feature-description {
+  .websaas-section .feature-description {
     font-size: 0.9rem;
+  }
+
+  .websaas-section .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .websaas-section .chart-legend {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .websaas-container {
     padding: 0 1.5rem;
+    gap: 2.5rem;
   }
 
-  .browser-header {
+  .websaas-section .browser-header {
     padding: 0.6rem 0.8rem;
   }
 
-  .browser-content {
+  .websaas-section .browser-content {
     padding: 1rem;
+    min-height: 300px;
   }
 
-  .dashboard-title {
+  .websaas-section .dashboard-title {
     font-size: 1.2rem;
   }
 
-  .stat-card {
+  .websaas-section .stat-card {
     padding: 1rem;
+  }
+
+  .websaas-section .chart-bars {
+    gap: 0.5rem;
+  }
+
+  .websaas-section .bar {
+    min-width: 20px;
+  }
+
+  .websaas-section .browser-address-bar {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .websaas-section .url-text {
+    font-size: 0.75rem;
   }
 }

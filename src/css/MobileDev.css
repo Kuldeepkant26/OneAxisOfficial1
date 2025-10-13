@@ -72,26 +72,26 @@
   color: #ffffff;
 }
 
-.mobiledev-features-list {
+.mobiledev-section .mobiledev-features-list {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.mobiledev-feature-item {
+.mobiledev-section .mobiledev-feature-item {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.feature-title {
+.mobiledev-section .feature-title {
   font-size: 1.25rem;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
 }
 
-.feature-title .gradient-accent {
+.mobiledev-section .feature-title .gradient-accent {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -102,14 +102,14 @@
   color: #ffffff;
 }
 
-.feature-description {
+.mobiledev-section .feature-description {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #6b6b6b;
   margin: 0;
 }
 
-.feature-description .gradient-accent {
+.mobiledev-section .feature-description .gradient-accent {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -122,7 +122,7 @@
 }
 
 /* Center - Phone Mockup */
-.mobiledev-center {
+.mobiledev-section .mobiledev-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,7 +131,7 @@
   perspective: 1000px;
 }
 
-.phone-mockup {
+.mobiledev-section .phone-mockup {
   width: 100%;
   max-width: 350px;
   aspect-ratio: 9/19.5;
@@ -202,7 +202,7 @@
 }
 
 /* Phone Header */
-.phone-header {
+.mobiledev-section .phone-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -211,7 +211,7 @@
   z-index: 11;
 }
 
-.header-icon {
+.mobiledev-section .header-icon {
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.9);
@@ -221,13 +221,13 @@
   transition: all 0.3s ease;
 }
 
-.header-icon:hover {
+.mobiledev-section .header-icon:hover {
   color: #ffffff;
   transform: scale(1.1);
 }
 
 /* Album Section */
-.album-section {
+.mobiledev-section .album-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,7 +247,7 @@
   }
 }
 
-.album-title {
+.mobiledev-section .album-title {
   font-size: 1.8rem;
   font-weight: 600;
   color: #ffffff;
@@ -256,17 +256,17 @@
   transition: transform 0.3s ease;
 }
 
-.phone-mockup:hover .album-title {
+.mobiledev-section .phone-mockup:hover .album-title {
   transform: scale(1.05);
 }
 
-.album-artist {
+.mobiledev-section .album-artist {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   margin: -0.8rem 0 0 0;
 }
 
-.album-art {
+.mobiledev-section .album-art {
   width: 200px;
   height: 200px;
   border-radius: 20px;
@@ -276,11 +276,11 @@
   transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.phone-mockup:hover .album-art {
+.mobiledev-section .phone-mockup:hover .album-art {
   transform: scale(1.08) rotate(2deg);
 }
 
-.album-image {
+.mobiledev-section .album-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -288,12 +288,12 @@
   transition: transform 0.5s ease;
 }
 
-.phone-mockup:hover .album-image {
+.mobiledev-section .phone-mockup:hover .album-image {
   transform: scale(1.1);
 }
 
 /* Player Controls */
-.player-controls {
+.mobiledev-section .player-controls {
   display: flex;
   gap: 2rem;
   align-items: center;
@@ -302,7 +302,7 @@
   animation: fadeInUp 0.8s ease-out 0.5s backwards;
 }
 
-.control-btn {
+.mobiledev-section .control-btn {
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.8);
@@ -317,12 +317,12 @@
   z-index: 5;
 }
 
-.control-btn:hover {
+.mobiledev-section .control-btn:hover {
   color: #ffffff;
   transform: scale(1.1);
 }
 
-.play-btn {
+.mobiledev-section .play-btn {
   width: 60px;
   height: 60px;
   background: rgba(255, 255, 255, 0.95);
@@ -334,7 +334,7 @@
   z-index: 10;
 }
 
-.play-btn:hover {
+.mobiledev-section .play-btn:hover {
   background: #ffffff;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   color: #8b7a9e;
@@ -342,7 +342,7 @@
 }
 
 /* Music List Card */
-.music-list-card {
+.mobiledev-section .music-list-card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 30px;
   padding: 1.8rem 1.5rem;
@@ -356,11 +356,11 @@
   transition: transform 0.3s ease;
 }
 
-.phone-mockup:hover .music-list-card {
+.mobiledev-section .phone-mockup:hover .music-list-card {
   transform: translateY(-5px);
 }
 
-.list-title {
+.mobiledev-section .list-title {
   font-size: 1.3rem;
   font-weight: 600;
   color: #2d2d2d;
@@ -368,13 +368,13 @@
   text-align: center;
 }
 
-.music-tracks {
+.mobiledev-section .music-tracks {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.track-item {
+.mobiledev-section .track-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -386,39 +386,39 @@
   z-index: 5;
 }
 
-.track-item:hover {
+.mobiledev-section .track-item:hover {
   background: rgba(139, 122, 158, 0.08);
   transform: translateX(5px);
 }
 
-.track-info {
+.mobiledev-section .track-info {
   display: flex;
   align-items: center;
   gap: 1rem;
   flex: 1;
 }
 
-.track-image {
+.mobiledev-section .track-image {
   width: 50px;
   height: 50px;
   border-radius: 12px;
   object-fit: cover;
 }
 
-.track-details {
+.mobiledev-section .track-details {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.track-title {
+.mobiledev-section .track-title {
   font-size: 0.95rem;
   font-weight: 600;
   color: #2d2d2d;
   margin: 0;
 }
 
-.track-duration {
+.mobiledev-section .track-duration {
   font-size: 0.8rem;
   color: #888888;
   display: flex;
@@ -426,7 +426,7 @@
   gap: 0.3rem;
 }
 
-.track-play-btn {
+.mobiledev-section .track-play-btn {
   background: transparent;
   border: none;
   color: #8b7a9e;
@@ -439,20 +439,20 @@
   justify-content: center;
 }
 
-.track-play-btn:hover {
+.mobiledev-section .track-play-btn:hover {
   color: #6d5a7e;
   transform: scale(1.15);
 }
 
 /* Right Content */
-.mobiledev-right {
+.mobiledev-section .mobiledev-right {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: flex-start;
 }
 
-.mobiledev-secondary-title {
+.mobiledev-section .mobiledev-secondary-title {
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: #1a1a1a;
@@ -464,14 +464,14 @@
   color: #ffffff;
 }
 
-.mobiledev-secondary-description {
+.mobiledev-section .mobiledev-secondary-description {
   font-size: 0.9rem;
   line-height: 1.7;
   color: #6b6b6b;
   margin: 0;
 }
 
-.mobiledev-secondary-description .gradient-accent {
+.mobiledev-section .mobiledev-secondary-description .gradient-accent {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -483,7 +483,7 @@
   color: #a0a0a0;
 }
 
-.mobiledev-learn-more {
+.mobiledev-section .mobiledev-learn-more {
   padding: 1rem 2.5rem;
   background: transparent;
   border: 2px solid #1a1a1a;
@@ -496,7 +496,7 @@
   text-transform: capitalize;
 }
 
-.mobiledev-learn-more:hover {
+.mobiledev-section .mobiledev-learn-more:hover {
   background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 100%);
   border-color: transparent;
   color: #ffffff;
@@ -522,13 +522,17 @@
     padding: 0 3rem;
   }
 
-  .mobiledev-left,
-  .mobiledev-right {
+  .mobiledev-section .section-header-center {
+    margin-bottom: 0rem;
+  }
+
+  .mobiledev-section .mobiledev-left,
+  .mobiledev-section .mobiledev-right {
     text-align: center;
     align-items: center;
   }
 
-  .phone-mockup {
+  .mobiledev-section .phone-mockup {
     max-width: 360px;
   }
 }
@@ -543,29 +547,33 @@
     gap: 3rem;
   }
 
-  .mobiledev-main-title {
+  .mobiledev-section .section-header-center {
+    margin-bottom: 0.5rem;
+  }
+
+  .mobiledev-section .mobiledev-main-title {
     font-size: clamp(1.8rem, 6vw, 2.5rem);
   }
 
-  .mobiledev-secondary-title {
+  .mobiledev-section .mobiledev-secondary-title {
     font-size: clamp(1.5rem, 5vw, 2rem);
   }
 
-  .phone-mockup {
+  .mobiledev-section .phone-mockup {
     max-width: 320px;
     padding: 1.5rem 1.2rem;
   }
 
-  .album-art {
+  .mobiledev-section .album-art {
     width: 160px;
     height: 160px;
   }
 
-  .feature-title {
+  .mobiledev-section .feature-title {
     font-size: 1.1rem;
   }
 
-  .feature-description {
+  .mobiledev-section .feature-description {
     font-size: 0.9rem;
   }
 }
@@ -575,24 +583,24 @@
     padding: 0 1.5rem;
   }
 
-  .phone-mockup {
+  .mobiledev-section .phone-mockup {
     max-width: 280px;
   }
 
-  .album-title {
+  .mobiledev-section .album-title {
     font-size: 1.5rem;
   }
 
-  .album-art {
+  .mobiledev-section .album-art {
     width: 140px;
     height: 140px;
   }
 
-  .music-list-card {
+  .mobiledev-section .music-list-card {
     padding: 1.5rem 1.2rem;
   }
 
-  .track-image {
+  .mobiledev-section .track-image {
     width: 45px;
     height: 45px;
   }
