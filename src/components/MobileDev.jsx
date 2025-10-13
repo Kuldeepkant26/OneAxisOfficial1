@@ -30,6 +30,11 @@ const MobileDev = () => {
   return (
     <section className={`mobiledev-section ${isDark ? 'dark' : ''}`}>
       <div className="mobiledev-container">
+        {/* Section Header */}
+        <div className="section-header-center">
+          <p className="section-label">MOBILE DEVELOPMENT</p>
+        </div>
+        
         {/* Left Content */}
         <div className="mobiledev-left">
           <h1 className="mobiledev-main-title">

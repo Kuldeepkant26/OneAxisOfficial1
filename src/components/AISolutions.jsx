@@ -30,6 +30,11 @@ const AISolutions = () => {
   return (
     <section className={`ai-section ${isDark ? 'dark' : ''}`}>
       <div className="ai-container">
+        {/* Section Header */}
+        <div className="section-header-center">
+          <p className="section-label">AI SOLUTIONS</p>
+        </div>
+        
         {/* Left Content */}
         <div className="ai-left">
           <h1 className="ai-main-title">

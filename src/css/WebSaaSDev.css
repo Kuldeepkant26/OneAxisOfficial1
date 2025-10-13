@@ -25,6 +25,26 @@
   position: relative;
 }
 
+/* Section Header */
+.websaas-section .section-header-center {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: -2rem;
+}
+
+.websaas-section .section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #6b7280;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.websaas-section.dark .section-label {
+  color: #9ca3af;
+}
+
 /* Left Content */
 .websaas-left {
   display: flex;
