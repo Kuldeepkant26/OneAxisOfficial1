@@ -33,7 +33,7 @@ const MobileDev = () => {
         {/* Left Content */}
         <div className="mobiledev-left">
           <h1 className="mobiledev-main-title">
-            Transform ideas into <span className="gradient-accent">stunning</span> mobile experiences.
+            Transform ideas with <span className="gradient-accent">Mobile Development</span> excellence.
           </h1>
 
           <div className="mobiledev-features-list">

@@ -22,7 +22,7 @@ const InteriorShowcase = () => {
         {/* Right Side - Content and Secondary Image */}
         <div className="showcase-right">
           <div className="showcase-content">
-            <p className="showcase-label">WELCOME TO SPACELUXE</p>
+            <p className="showcase-label">INTERIOR DESIGNING</p>
             
             <h2 className="showcase-title">
               Build Your <span className="gradient-accent">Luxurious</span>
