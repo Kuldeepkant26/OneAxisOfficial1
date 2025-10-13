@@ -1,0 +1,25 @@
+.test-section {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e8eef3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.test-container h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.test-container p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,369 @@
+/* Interior Design Section - Premium Glassmorphic Design */
+
+.interior-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #e8e4df;
+  transition: background 0.5s ease;
+}
+
+.interior-section.dark {
+  background: #1a1a2e;
+}
+
+.interior-container {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Background Image Layer */
+.interior-bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2532&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.interior-section.dark .interior-bg-image {
+  filter: brightness(0.4) contrast(1.1);
+}
+
+.interior-section.dark .interior-bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6) 0%, rgba(26, 26, 46, 0.3) 100%);
+}
+
+/* Glassmorphic Content Card */
+.interior-section .interior-content-card {
+  position: relative;
+  z-index: 10;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: 0;
+  animation: fadeSlideIn 1s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.interior-section .interior-card-inner {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px) saturate(140%);
+  -webkit-backdrop-filter: blur(25px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 4rem 3.5rem;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interior-section .interior-card-inner:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.18),
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.interior-section.dark .interior-card-inner {
+  background: rgba(20, 20, 30, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.interior-section.dark .interior-card-inner:hover {
+  background: rgba(20, 20, 30, 0.35);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.6),
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Typography */
+.interior-section .interior-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+.interior-section .interior-title span.gradient-accent {
+  background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.interior-section.dark .interior-title {
+  color: #ffffff;
+}
+
+.interior-section .interior-description {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #2a2a2a;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+}
+
+.interior-section.dark .interior-description {
+  color: #c0c0c0;
+}
+
+/* CTA Button */
+.interior-section .interior-cta {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.interior-section .interior-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.interior-section .interior-cta:hover {
+  background: #2a2a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.interior-section .interior-cta:hover::before {
+  opacity: 1;
+}
+
+.interior-section .interior-cta:active {
+  transform: translateY(0);
+}
+
+.interior-section.dark .interior-cta {
+  background: linear-gradient(135deg, #a8c5a8 0%, #8db88d 100%);
+  color: #1a1a1a;
+}
+
+.interior-section.dark .interior-cta:hover {
+  background: linear-gradient(135deg, #bdd4bd 0%, #a8c5a8 100%);
+  box-shadow: 0 10px 40px rgba(168, 197, 168, 0.4);
+}
+
+/* Decorative Floating Shapes */
+.interior-section .interior-decoration {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.interior-section .floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 154, 118, 0.15) 0%, rgba(255, 126, 154, 0.15) 50%, rgba(126, 154, 255, 0.15) 100%);
+  backdrop-filter: blur(20px);
+  animation: float 20s ease-in-out infinite;
+}
+
+.interior-section .shape-1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.interior-section .shape-2 {
+  width: 180px;
+  height: 180px;
+  bottom: 20%;
+  left: 25%;
+  animation-delay: 5s;
+}
+
+.interior-section .shape-3 {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 10%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-30px) translateX(20px) rotate(90deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-15px) translateX(-20px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-40px) translateX(10px) rotate(270deg);
+    opacity: 0.6;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .interior-section .interior-container {
+    padding: 0 3rem;
+  }
+
+  .interior-section .interior-content-card {
+    max-width: 520px;
+  }
+
+  .interior-section .interior-card-inner {
+    padding: 3.5rem 3rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .interior-section .interior-container {
+    padding: 0 2rem;
+    justify-content: center;
+  }
+
+  .interior-section .interior-content-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .interior-section .interior-card-inner {
+    padding: 3rem 2.5rem;
+  }
+
+  .interior-section .floating-shape {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .interior-section {
+    min-height: 90vh;
+  }
+
+  .interior-section .interior-container {
+    height: 90vh;
+    padding: 0 1.5rem;
+  }
+
+  .interior-section .interior-content-card {
+    max-width: 100%;
+  }
+
+  .interior-section .interior-card-inner {
+    padding: 2.5rem 2rem;
+  }
+
+  .interior-section .interior-title {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .interior-section .interior-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .interior-section .interior-cta {
+    width: 100%;
+    padding: 1.1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .interior-section .interior-card-inner {
+    padding: 2rem 1.5rem;
+  }
+
+  .interior-section .interior-title {
+    font-size: 1.75rem;
+  }
+
+  .interior-section .interior-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+/* Premium Touch - Subtle Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .interior-section .interior-card-inner {
+    animation: subtlePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes subtlePulse {
+    0%, 100% {
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.18),
+        0 10px 20px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+/* Accessibility */
+.interior-section .interior-cta:focus-visible {
+  outline: 3px solid rgba(26, 26, 26, 0.5);
+  outline-offset: 3px;
+}
+
+.interior-section.dark .interior-cta:focus-visible {
+  outline-color: rgba(168, 197, 168, 0.7);
+}
