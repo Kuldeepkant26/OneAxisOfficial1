@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import '../css/Navbar.css';
 
@@ -8,6 +9,7 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { isDark } = useTheme();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,13 +57,13 @@ const Navbar = () => {
           </div>
           
           <div className="navbar-menu">
-            <a href="#home" className="nav-link">Home</a>
+            <Link to="/" className="nav-link">Home</Link>
             <div className="nav-dropdown">
               <a href="#services" className="nav-link">Our Services</a>
               <div className="dropdown-menu">
                 <a href="#ai-solutions" className="dropdown-item">AI Solutions</a>
                 <a href="#mobile-dev" className="dropdown-item">Mobile Development</a>
-                <a href="#interior" className="dropdown-item">Interior Designing</a>
+                <Link to="/interior" className="dropdown-item">Interior Designing</Link>
                 <a href="#web-dev" className="dropdown-item">Website Development</a>
               </div>
             </div>
@@ -103,20 +105,24 @@ const Navbar = () => {
           </div>
 
           <nav className="sidebar-nav">
-            <a href="#home" className="sidebar-link" onClick={closeSidebar}>
+            <Link to="/" className="sidebar-link" onClick={closeSidebar}>
               <span className="link-number">01</span>
               <span className="link-text">Home</span>
-            </a>
+            </Link>
             <a href="#services" className="sidebar-link" onClick={closeSidebar}>
               <span className="link-number">02</span>
               <span className="link-text">Our Services</span>
             </a>
-            <a href="#careers" className="sidebar-link" onClick={closeSidebar}>
+            <Link to="/interior" className="sidebar-link" onClick={closeSidebar}>
               <span className="link-number">03</span>
+              <span className="link-text">Interior Design</span>
+            </Link>
+            <a href="#careers" className="sidebar-link" onClick={closeSidebar}>
+              <span className="link-number">04</span>
               <span className="link-text">Careers</span>
             </a>
             <a href="#contact" className="sidebar-link" onClick={closeSidebar}>
-              <span className="link-number">04</span>
+              <span className="link-number">05</span>
               <span className="link-text">Contact Us</span>
             </a>
           </nav>

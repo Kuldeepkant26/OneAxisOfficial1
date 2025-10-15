@@ -9,6 +9,8 @@ import TestSection from '../components/TestSection';
 import WebSaaSDev from '../components/WebSaaSDev';
 import AISolutions from '../components/AISolutions';
 import MobileDev from '../components/MobileDev';
+import FAQ from '../components/FAQ';
+import Footer from '../components/Footer';
 import { useTheme } from '../context/ThemeContext';
 import '../css/Home.css';
 
@@ -25,7 +27,9 @@ const Home = () => {
         <MobileDev />
         <WebSaaSDev />
         <AISolutions />
+        <FAQ />
       </div>
+      <Footer />
     </>
   );
 };
