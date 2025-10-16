@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import InteriorDesign from '../components/InteriorDesign'
 import Footer from '../components/Footer'
+import SEO from '../components/SEO'
 import '../css/InteriorServices.css'
 
 // Interior Design Image URLs
@@ -21,6 +22,13 @@ function Interior() {
 
     return (
         <div className="interior-services-page">
+            <SEO 
+                title="Interior Design Services - One Axis Solutions | Creative Design Company"
+                description="Transform your spaces with One Axis Solutions' expert interior design services. We offer residential, commercial, and luxury interior design with modern, contemporary, and minimalist styles."
+                keywords="interior design, creative design, residential interior design, commercial interior design, modern interior design, luxury interior design, One Axis Solutions"
+                canonicalUrl="https://oneaxissolutions.com/interior"
+                ogImage="/interior-og-image.jpg"
+            />
             <Navbar />
             <InteriorDesign />
 

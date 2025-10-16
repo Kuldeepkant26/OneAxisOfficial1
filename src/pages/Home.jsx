@@ -11,6 +11,7 @@ import AISolutions from '../components/AISolutions';
 import MobileDev from '../components/MobileDev';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { useTheme } from '../context/ThemeContext';
 import '../css/Home.css';
 
@@ -19,6 +20,13 @@ const Home = () => {
   
   return (
     <>
+      <SEO 
+        title="One Axis Solutions - Software Development & Interior Design Company"
+        description="One Axis Solutions is a leading software development and interior design company offering web development, mobile apps, AI solutions, SaaS development, and creative interior design services."
+        keywords="One Axis Solutions, software development company, interior design company, web development, mobile app development, AI solutions, SaaS development, creative design"
+        canonicalUrl="https://oneaxissolutions.com/"
+        ogImage="/og-image.jpg"
+      />
       <Navbar />
       <div className={`home-page ${isDark ? 'dark' : ''}`}>
         <Hero />
