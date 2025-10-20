@@ -13,10 +13,6 @@
   padding: 5rem 0;
 }
 
-.showcase-section.dark {
- 
-}
-
 .showcase-section .showcase-container {
   position: relative;
   width: 100%;
@@ -67,12 +63,6 @@
   transform: scale(1.05);
 }
 
-.showcase-section.dark .showcase-main-image {
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.5),
-    0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
 /* Right Side - Content and Secondary Image */
 .showcase-section .showcase-right {
   position: relative;
@@ -97,10 +87,6 @@
   margin-bottom: 0.5rem;
 }
 
-.showcase-section.dark .showcase-label {
-  color: #9ca3af;
-}
-
 /* Title */
 .showcase-section .showcase-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -118,10 +104,6 @@
   background-clip: text;
 }
 
-.showcase-section.dark .showcase-title {
-  color: #ffffff;
-}
-
 /* Description */
 .showcase-section .showcase-description {
   font-size: 1rem;
@@ -129,10 +111,6 @@
   color: #4a4a4a;
   max-width: 500px;
   margin-bottom: 1rem;
-}
-
-.showcase-section.dark .showcase-description {
-  color: #b8b8b8;
 }
 
 /* CTA Button */
@@ -172,16 +150,6 @@
   opacity: 1;
 }
 
-.showcase-section.dark .showcase-cta {
-  background: linear-gradient(135deg, #6b4ff5 0%, #8b72f7 100%);
-  color: #ffffff;
-}
-
-.showcase-section.dark .showcase-cta:hover {
-  background: linear-gradient(135deg, #8b72f7 0%, #ab95f9 100%);
-  box-shadow: 0 10px 40px rgba(107, 79, 245, 0.4);
-}
-
 /* Secondary Image - Bottom Right */
 .showcase-section .showcase-secondary-image {
   position: relative;
@@ -215,12 +183,6 @@
 
 .showcase-section .showcase-secondary-image:hover .secondary-img {
   transform: scale(1.05);
-}
-
-.showcase-section.dark .showcase-secondary-image {
-  box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.4),
-    0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Design */
@@ -313,10 +275,6 @@
 .showcase-section .showcase-cta:focus-visible {
   outline: 3px solid rgba(26, 26, 26, 0.5);
   outline-offset: 3px;
-}
-
-.showcase-section.dark .showcase-cta:focus-visible {
-  outline-color: rgba(107, 79, 245, 0.7);
 }
 
 /* Premium Animation on Load */

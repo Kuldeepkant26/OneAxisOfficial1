@@ -1,45 +1,80 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import AboutUs from '../components/AboutUs';
-import InteriorDesign from '../components/InteriorDesign';
-import InteriorShowcase from '../components/InteriorShowcase';
-import Services from '../components/Services';
-import TestSection from '../components/TestSection';
-import WebSaaSDev from '../components/WebSaaSDev';
-import AISolutions from '../components/AISolutions';
-import MobileDev from '../components/MobileDev';
-import FAQ from '../components/FAQ';
-import Footer from '../components/Footer';
-import SEO from '../components/SEO';
-import { useTheme } from '../context/ThemeContext';
 import '../css/Home.css';
+import Navbar from '../components/Navbar';
+import AboutUs from '../components/AboutUs';
+import MobileDev from '../components/MobileDev';
+import WebSaaSDev from '../components/WebSaaSDev';
+import InteriorShowcase from '../components/InteriorShowcase';
+
+import Hyperspeed from '../../Reactbits/Hyperspeed/Hyperspeed';
+import { HiLightningBolt } from 'react-icons/hi';
+import { MdDesignServices } from 'react-icons/md';
+import { FaShieldAlt } from 'react-icons/fa';
 
 const Home = () => {
-  const { isDark } = useTheme();
-  
-  return (
-    <>
-      <SEO 
-        title="One Axis Solutions - Software Development & Interior Design Company"
-        description="One Axis Solutions is a leading software development and interior design company offering web development, mobile apps, AI solutions, SaaS development, and creative interior design services."
-        keywords="One Axis Solutions, software development company, interior design company, web development, mobile app development, AI solutions, SaaS development, creative design"
-        canonicalUrl="https://oneaxissolutions.com/"
-        ogImage="/og-image.jpg"
-      />
-      <Navbar />
-      <div className={`home-page ${isDark ? 'dark' : ''}`}>
-        <Hero />
-        <AboutUs />
-        <InteriorShowcase />
-        <MobileDev />
-        <WebSaaSDev />
-        <AISolutions />
-        <FAQ />
-      </div>
-      <Footer />
-    </>
-  );
+    return (
+        <div className="home-container">
+            <Navbar />
+
+            {/* Section 1 - Hero Section */}
+            <div className="section section-1" style={{ zIndex: 1 }}>
+                <Hyperspeed></Hyperspeed>
+                
+                {/* Hero Content */}
+                <div className="hero-content">
+                    <div className="hero-text">
+                        <h1 className="hero-title">
+                            <span>Transform Your</span>
+                            <span className="gradient-text">Digital Vision</span>
+                        </h1>
+                        <p className="hero-subtitle">
+                            We craft cutting-edge solutions that accelerate your business forward
+                        </p>
+                        <div className="hero-buttons">
+                            <button className="btn-primary">
+                                Get Started
+                                <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </button>
+                            <button className="btn-secondary">View Our Work</button>
+                        </div>
+                    </div>
+                    
+                    <div className="hero-features">
+                        <div className="feature-card">
+                            <div className="feature-icon"><HiLightningBolt /></div>
+                            <h3>Fast</h3>
+                            <p>Lightning speed</p>
+                        </div>
+                        <div className="feature-card">
+                            <div className="feature-icon"><MdDesignServices /></div>
+                            <h3>Design</h3>
+                            <p>Modern UI/UX</p>
+                        </div>
+                        <div className="feature-card">
+                            <div className="feature-icon"><FaShieldAlt /></div>
+                            <h3>Secure</h3>
+                            <p>Enterprise grade</p>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+
+            {/* Section 2 - Add your content here */}
+            <div className="section section-2" style={{ zIndex: 2 }}>
+                <AboutUs></AboutUs>
+                <MobileDev></MobileDev>
+                <WebSaaSDev></WebSaaSDev>
+                <InteriorShowcase></InteriorShowcase>
+             
+            </div>
+
+            {/* Footer Section */}
+        
+        </div>
+    );
 };
 
 export default Home;

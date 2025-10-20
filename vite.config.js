@@ -8,20 +8,29 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          motion: ['framer-motion']
-        }
-      }
+        // ✅ Use a function instead of an object (cross-platform safe)
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor'
+            }
+            if (id.includes('framer-motion')) {
+              return 'motion'
+            }
+            // fallback for other libs
+            return id.toString().split('node_modules/')[1].split('/')[0].toString()
+          }
+        },
+      },
     },
-    // Optimize for production
+    // ✅ Optimize for production
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true,
+        drop_console: true, // remove console logs
       },
     },
   },
-  // Add base URL for production
+  // ✅ Add base URL for production builds
   base: '/',
 })

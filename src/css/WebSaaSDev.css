@@ -10,10 +10,6 @@
   transition: background 0.5s ease;
 }
 
-.websaas-section.dark {
-  background: transparent;
-}
-
 .websaas-container {
   max-width: 1500px;
   margin: 0 auto;
@@ -41,10 +37,6 @@
   margin: 0;
 }
 
-.websaas-section.dark .section-label {
-  color: #9ca3af;
-}
-
 /* Left Content */
 .websaas-section .websaas-left {
   display: flex;
@@ -66,10 +58,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.websaas-section.dark .websaas-main-title {
-  color: #ffffff;
 }
 
 .websaas-section .websaas-features-list {
@@ -98,10 +86,6 @@
   background-clip: text;
 }
 
-.websaas-section.dark .feature-title {
-  color: #ffffff;
-}
-
 .websaas-section .feature-description {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -115,10 +99,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 600;
-}
-
-.websaas-section.dark .feature-description {
-  color: #a0a0a0;
 }
 
 /* Center - Laptop Mockup */
@@ -162,16 +142,9 @@
   box-shadow: 
     0 8px 20px rgba(0, 0, 0, 0.15),
     0 20px 50px rgba(0, 0, 0, 0.2),
-    0 40px 80px rgba(0, 0, 0, 0.25);
-}
-
-.websaas-section.dark .browser-window {
-  background: #1e1e2e;
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 5px 15px rgba(0, 0, 0, 0.3),
-    0 15px 40px rgba(0, 0, 0, 0.4),
-    0 30px 60px rgba(0, 0, 0, 0.5);
+    0 40px 80px rgba(0, 0, 0, 0.25),
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Browser Header */
@@ -188,17 +161,12 @@
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.websaas-section.dark .browser-header {
-  background: #2a2a3e;
-  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 .websaas-section .browser-controls {
@@ -240,11 +208,6 @@
   border: 1px solid #e0e0e0;
 }
 
-.websaas-section.dark .browser-address-bar {
-  background: #1e1e2e;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
 .websaas-section .lock-icon {
   color: #28ca42;
   font-size: 0.9rem;
@@ -255,10 +218,6 @@
   color: #666666;
 }
 
-.websaas-section.dark .url-text {
-  color: #a0a0a0;
-}
-
 .websaas-section .browser-menu {
   color: #666666;
   cursor: pointer;
@@ -267,10 +226,6 @@
 
 .websaas-section .browser-menu:hover {
   color: #333333;
-}
-
-.websaas-section.dark .browser-menu {
-  color: #a0a0a0;
 }
 
 /* Browser Content */
@@ -295,10 +250,6 @@
   }
 }
 
-.websaas-section.dark .browser-content {
-  background: #16161f;
-}
-
 .websaas-section .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -310,10 +261,6 @@
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
-}
-
-.websaas-section.dark .dashboard-title {
-  color: #ffffff;
 }
 
 .websaas-section .dashboard-btn {
@@ -357,11 +304,6 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.websaas-section.dark .stat-card {
-  background: #1e1e2e;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
 .websaas-section .stat-icon {
   width: 40px;
   height: 40px;
@@ -388,10 +330,6 @@
   margin: 0;
 }
 
-.websaas-section.dark .stat-title {
-  color: #a0a0a0;
-}
-
 .websaas-section .stat-value-row {
   display: flex;
   align-items: center;
@@ -402,10 +340,6 @@
   font-size: 1.3rem;
   font-weight: 700;
   color: #1a1a1a;
-}
-
-.websaas-section.dark .stat-value {
-  color: #ffffff;
 }
 
 .websaas-section .stat-trend {
@@ -425,11 +359,6 @@
   gap: 1.5rem;
 }
 
-.websaas-section.dark .dashboard-chart {
-  background: #1e1e2e;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
 .websaas-section .chart-header {
   display: flex;
   justify-content: space-between;
@@ -443,10 +372,6 @@
   margin: 0;
 }
 
-.websaas-section.dark .chart-title {
-  color: #ffffff;
-}
-
 .websaas-section .chart-legend {
   display: flex;
   gap: 1.5rem;
@@ -457,11 +382,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #666666;
-}
-
-.websaas-section.dark .legend-item {
-  color: #a0a0a0;
+  color: #666;
 }
 
 .websaas-section .legend-dot {
@@ -540,10 +461,6 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.websaas-section.dark .laptop-base {
-  background: linear-gradient(180deg, #3a3a4e 0%, #2a2a3e 100%);
-}
-
 /* Right Content */
 .websaas-section .websaas-right {
   display: flex;
@@ -560,10 +477,6 @@
   margin: 0;
 }
 
-.websaas-section.dark .websaas-secondary-title {
-  color: #ffffff;
-}
-
 .websaas-section .websaas-secondary-description {
   font-size: 0.9rem;
   line-height: 1.7;
@@ -577,10 +490,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 600;
-}
-
-.websaas-section.dark .websaas-secondary-description {
-  color: #a0a0a0;
 }
 
 .websaas-section .websaas-learn-more {
@@ -602,16 +511,6 @@
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(255, 154, 118, 0.3);
-}
-
-.websaas-section.dark .websaas-learn-more {
-  border-color: #ff9a76;
-  color: #ff9a76;
-}
-
-.websaas-section.dark .websaas-learn-more:hover {
-  background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 100%);
-  color: #ffffff;
 }
 
 /* Responsive Design */
