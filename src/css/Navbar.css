@@ -1,4 +1,4 @@
-/* Navbar Container */
+/* Navbar Container - Smooth Scroll Animation */
 .navbar {
   position: fixed;
   top: 0;
@@ -6,12 +6,14 @@
   right: 0;
   z-index: 1000;
   padding: 15px 0;
-  transition: transform 0.3s ease-in-out;
   transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
 .navbar-hidden {
-  transform: translateY(-100%);
+  transform: translateY(-110%);
+  pointer-events: none;
 }
 
 
@@ -28,8 +30,7 @@
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   margin: 0 auto;
-  width: 94%;
-  max-width: 1300px;
+  width: 97%;
 }
 
 .navbar-container:hover {
@@ -171,6 +172,8 @@
   position: relative;
   overflow: hidden;
   animation: gradientMove 3s ease infinite;
+  border: none;
+  font-family: inherit;
 }
 
 @keyframes gradientMove {
@@ -435,6 +438,10 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .sidebar-contact-btn::before {

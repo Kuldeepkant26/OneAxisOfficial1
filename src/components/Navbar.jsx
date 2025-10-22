@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../css/Navbar.css';
+import ContactModal from './ContactModal';
 
 const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+    const location = useLocation();
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -21,22 +25,61 @@ const Navbar = () => {
         document.body.style.overflow = 'unset';
     };
 
-    // Scroll implementation - targeting the home-container
+    const openContactModal = () => {
+        setIsContactModalOpen(true);
+        setIsSidebarOpen(false);
+    };
+
+    const closeContactModal = () => {
+        setIsContactModalOpen(false);
+    };
+
+    // Reset scroll position on route change
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        const homeContainer = document.querySelector('.home-container');
+        const softwaresContainer = document.querySelector('.softwares-container');
+        const interiorPage = document.querySelector('.interior-design-page');
+        if (homeContainer) {
+            homeContainer.scrollTo(0, 0);
+        }
+        if (softwaresContainer) {
+            softwaresContainer.scrollTo(0, 0);
+        }
+        if (interiorPage) {
+            interiorPage.scrollTo(0, 0);
+        }
+        setIsVisible(true);
+        setLastScrollY(0);
+    }, [location.pathname]);
+
+    // Universal scroll implementation that works on all pages
     useEffect(() => {
         const controlNavbar = () => {
-            // Get the scrollable container
-            const scrollContainer = document.querySelector('.home-container');
+            // Try to get scroll from window first, then try home-container, softwares-container, or interior-design-page
+            let currentScrollY = window.pageYOffset || window.scrollY;
             
-            if (!scrollContainer) return;
-            
-            const currentScrollY = scrollContainer.scrollTop;
+            // If window scroll is 0, check for custom scroll containers
+            if (currentScrollY === 0) {
+                const homeContainer = document.querySelector('.home-container');
+                const softwaresContainer = document.querySelector('.softwares-container');
+                const interiorPage = document.querySelector('.interior-design-page');
+                
+                if (homeContainer) {
+                    currentScrollY = homeContainer.scrollTop;
+                } else if (softwaresContainer) {
+                    currentScrollY = softwaresContainer.scrollTop;
+                } else if (interiorPage) {
+                    currentScrollY = interiorPage.scrollTop;
+                }
+            }
             
             // Always show navbar at the very top
             if (currentScrollY < 10) {
                 setIsVisible(true);
             }
-            // Hide when scrolling down past 80px
-            else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            // Hide when scrolling down past 100px
+            else if (currentScrollY > lastScrollY && currentScrollY > 100) {
                 setIsVisible(false);
             }
             // Show when scrolling up
@@ -47,16 +90,44 @@ const Navbar = () => {
             setLastScrollY(currentScrollY);
         };
 
-        const scrollContainer = document.querySelector('.home-container');
-        
-        if (scrollContainer) {
-            scrollContainer.addEventListener('scroll', controlNavbar);
+        // Small delay to ensure DOM is ready after navigation
+        const timer = setTimeout(() => {
+            // Add listeners to both window and container elements
+            window.addEventListener('scroll', controlNavbar, { passive: true });
             
-            return () => {
-                scrollContainer.removeEventListener('scroll', controlNavbar);
-            };
-        }
-    }, [lastScrollY]);
+            const homeContainer = document.querySelector('.home-container');
+            const softwaresContainer = document.querySelector('.softwares-container');
+            const interiorPage = document.querySelector('.interior-design-page');
+            
+            if (homeContainer) {
+                homeContainer.addEventListener('scroll', controlNavbar, { passive: true });
+            }
+            if (softwaresContainer) {
+                softwaresContainer.addEventListener('scroll', controlNavbar, { passive: true });
+            }
+            if (interiorPage) {
+                interiorPage.addEventListener('scroll', controlNavbar, { passive: true });
+            }
+        }, 100);
+        
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('scroll', controlNavbar);
+            const homeContainer = document.querySelector('.home-container');
+            const softwaresContainer = document.querySelector('.softwares-container');
+            const interiorPage = document.querySelector('.interior-design-page');
+            
+            if (homeContainer) {
+                homeContainer.removeEventListener('scroll', controlNavbar);
+            }
+            if (softwaresContainer) {
+                softwaresContainer.removeEventListener('scroll', controlNavbar);
+            }
+            if (interiorPage) {
+                interiorPage.removeEventListener('scroll', controlNavbar);
+            }
+        };
+    }, [lastScrollY, location.pathname]);
 
     // Cleanup body overflow on unmount
     useEffect(() => {
@@ -69,16 +140,16 @@ const Navbar = () => {
         <nav className={`navbar ${!isVisible ? 'navbar-hidden' : ''}`}>
             <div className="navbar-container">
                 {/* Logo */}
-                <div className="navbar-logo">
+                <Link to="/" className="navbar-logo">
                     <div className="logo-text">
                         <span className="logo-one">One</span>
                         <span className="logo-axis">Axis</span>
                     </div>
-                </div>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <div className="navbar-menu">
-                    <a href="#home" className="nav-link">Home</a>
+                    <Link to="/" className="nav-link">Home</Link>
                     
                     <div className="nav-dropdown">
                         <a href="#services" className="nav-link">
@@ -88,10 +159,10 @@ const Navbar = () => {
                             </svg>
                         </a>
                         <div className="dropdown-menu">
-                            <a href="#web-saas" className="dropdown-item">Web & SaaS Development</a>
-                            <a href="#mobile" className="dropdown-item">Mobile Development</a>
-                            <a href="#ai" className="dropdown-item">AI Solutions</a>
-                            <a href="#interior" className="dropdown-item">Interior Showcase</a>
+                            <Link to="/softwares" className="dropdown-item">Web & SaaS Development</Link>
+                            <Link to="/softwares" className="dropdown-item">Mobile Development</Link>
+                            <Link to="/softwares" className="dropdown-item">AI Solutions</Link>
+                            <Link to="/interior-design" className="dropdown-item">Interior Design</Link>
                         </div>
                     </div>
                     
@@ -99,7 +170,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Contact Button */}
-                <a href="#contact" className="contact-btn">Contact Us</a>
+                <button onClick={openContactModal} className="contact-btn">Contact Us</button>
 
                 {/* Mobile Menu Toggle */}
                 <button className="mobile-menu-toggle" onClick={toggleSidebar} aria-label="Toggle menu">
@@ -132,15 +203,15 @@ const Navbar = () => {
                 </div>
                 
                 <nav className="sidebar-nav">
-                    <a href="#home" className="sidebar-link" onClick={closeSidebar}>Home</a>
+                    <Link to="/" className="sidebar-link" onClick={closeSidebar}>Home</Link>
                     
                     <div className="sidebar-dropdown">
                         <div className="sidebar-dropdown-label">Services</div>
                         <div className="sidebar-dropdown-content">
-                            <a href="#web-saas" className="sidebar-sublink" onClick={closeSidebar}>Web & SaaS Development</a>
-                            <a href="#mobile" className="sidebar-sublink" onClick={closeSidebar}>Mobile Development</a>
-                            <a href="#ai" className="sidebar-sublink" onClick={closeSidebar}>AI Solutions</a>
-                            <a href="#interior" className="sidebar-sublink" onClick={closeSidebar}>Interior Showcase</a>
+                            <Link to="/softwares" className="sidebar-sublink" onClick={closeSidebar}>Web & SaaS Development</Link>
+                            <Link to="/softwares" className="sidebar-sublink" onClick={closeSidebar}>Mobile Development</Link>
+                            <Link to="/softwares" className="sidebar-sublink" onClick={closeSidebar}>AI Solutions</Link>
+                            <Link to="/interior-design" className="sidebar-sublink" onClick={closeSidebar}>Interior Design</Link>
                         </div>
                     </div>
                     
@@ -148,11 +219,14 @@ const Navbar = () => {
                 </nav>
                 
                 <div className="sidebar-footer">
-                    <a href="#contact" className="sidebar-contact-btn" onClick={closeSidebar}>
+                    <button onClick={openContactModal} className="sidebar-contact-btn">
                         Contact Us
-                    </a>
+                    </button>
                 </div>
             </div>
+
+            {/* Contact Modal */}
+            <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
         </nav>
     );
 };

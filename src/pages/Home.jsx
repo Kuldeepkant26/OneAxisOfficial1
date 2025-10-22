@@ -1,10 +1,13 @@
 import React from 'react';
 import '../css/Home.css';
-import Navbar from '../components/Navbar';
 import AboutUs from '../components/AboutUs';
 import MobileDev from '../components/MobileDev';
 import WebSaaSDev from '../components/WebSaaSDev';
 import InteriorShowcase from '../components/InteriorShowcase';
+import Testimonials from '../components/Testimonials';
+import Statistics from '../components/Statistics';
+import CTA from '../components/CTA';
+import FAQ from '../components/FAQ';
 
 import Hyperspeed from '../../Reactbits/Hyperspeed/Hyperspeed';
 import { HiLightningBolt } from 'react-icons/hi';
@@ -14,8 +17,6 @@ import { FaShieldAlt } from 'react-icons/fa';
 const Home = () => {
     return (
         <div className="home-container">
-            <Navbar />
-
             {/* Section 1 - Hero Section */}
             <div className="section section-1" style={{ zIndex: 1 }}>
                 <Hyperspeed></Hyperspeed>
@@ -25,7 +26,7 @@ const Home = () => {
                     <div className="hero-text">
                         <h1 className="hero-title">
                             <span>Transform Your</span>
-                            <span className="gradient-text">Digital Vision</span>
+                            <span className="gradient-text">Vision</span>
                         </h1>
                         <p className="hero-subtitle">
                             We craft cutting-edge solutions that accelerate your business forward
@@ -68,10 +69,19 @@ const Home = () => {
                 <MobileDev></MobileDev>
                 <WebSaaSDev></WebSaaSDev>
                 <InteriorShowcase></InteriorShowcase>
-             
+                
+                {/* Testimonials Section */}
+                <Testimonials />
+                
+                {/* Statistics Section */}
+                <Statistics />
+                
+                {/* CTA Section */}
+                <CTA />
+                
+                {/* FAQ Section */}
+                <FAQ />
             </div>
-
-            {/* Footer Section */}
         
         </div>
     );

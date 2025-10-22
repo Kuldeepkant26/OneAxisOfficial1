@@ -1,0 +1,257 @@
+/* Softwares Page Container - Same structure as Home */
+.softwares-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Each Section - Base Styles */
+.softwares-container .section {
+  width: 100vw;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-x: hidden;
+}
+
+/* Section 1 - Hero */
+.softwares-container .section-1 {
+  background: linear-gradient(135deg, #fef5f0 0%, #f0f5fe 50%, #fef0f5 100%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Position Ballpit background */
+.softwares-container .section-1 > canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hero Content */
+.softwares-container .hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 750px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.softwares-container .hero-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+  animation: softwaresFadeInUp 0.6s ease-out;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .softwares-container .hero-title {
+    white-space: normal;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+}
+
+.softwares-container .gradient-text {
+  background: linear-gradient(135deg, #ff9a76 0%, #ff7e9a 50%, #7e9aff 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: softwaresGradientShift 4s ease infinite;
+  display: inline-block;
+}
+
+@keyframes softwaresGradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.softwares-container .hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: rgba(26, 26, 26, 0.65);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+  font-weight: 400;
+  animation: softwaresFadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.softwares-container .hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: softwaresFadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+.softwares-container .btn-primary,
+.softwares-container .btn-secondary {
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.softwares-container .btn-primary {
+  background: linear-gradient(135deg, #ff9a76 0%, #7e9aff 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(255, 154, 118, 0.4);
+}
+
+.softwares-container .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 154, 118, 0.6);
+}
+
+.softwares-container .btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.softwares-container .btn-secondary:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.softwares-container .btn-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.softwares-container .btn-primary:hover .btn-icon {
+  transform: translateX(5px);
+}
+
+@keyframes softwaresFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section 2 - Services Content */
+.softwares-container .section-2 {
+  background: #FFFFFF;
+  min-height: 100vh;
+  height: auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+/* Service Sections */
+.softwares-container .service-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.softwares-container .service-content {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.softwares-container .service-content h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ff9a76 0%, #7e9aff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.softwares-container .service-content p {
+  font-size: 1.2rem;
+  color: rgba(26, 26, 26, 0.6);
+}
+
+/* Different background colors for each service section */
+.softwares-container .web-saas-section {
+  background: linear-gradient(135deg, rgba(255, 154, 118, 0.05) 0%, rgba(126, 154, 255, 0.05) 100%);
+}
+
+.softwares-container .mobile-dev-section {
+  background: linear-gradient(135deg, rgba(126, 154, 255, 0.05) 0%, rgba(255, 126, 154, 0.05) 100%);
+}
+
+.softwares-container .ai-solutions-section {
+  background: linear-gradient(135deg, rgba(255, 126, 154, 0.05) 0%, rgba(154, 255, 126, 0.05) 100%);
+}
+
+.softwares-container .cloud-services-section {
+  background: linear-gradient(135deg, rgba(154, 255, 126, 0.05) 0%, rgba(126, 218, 255, 0.05) 100%);
+}
+
+.softwares-container .devops-section {
+  background: linear-gradient(135deg, rgba(126, 218, 255, 0.05) 0%, rgba(218, 126, 255, 0.05) 100%);
+}
+
+.softwares-container .custom-software-section {
+  background: linear-gradient(135deg, rgba(218, 126, 255, 0.05) 0%, rgba(255, 154, 118, 0.05) 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .softwares-container .hero-features {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+  
+  .softwares-container .service-section {
+    min-height: 80vh;
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .softwares-container .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .softwares-container .btn-primary,
+  .softwares-container .btn-secondary {
+    width: 100%;
+  }
+}

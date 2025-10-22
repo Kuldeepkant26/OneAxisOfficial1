@@ -19,7 +19,7 @@
 
 /* Section 1 - Hero */
 .home-container .section-1 {
-  background-color: black;
+  background: linear-gradient(135deg, #fef5f0 0%, #f0f5fe 50%, #fef0f5 100%);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -54,8 +54,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  color: #ffffff;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  color: #1a1a1a;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .gradient-text {
@@ -74,7 +74,7 @@
 
 .hero-subtitle {
   font-size: clamp(0.85rem, 1.8vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(26, 26, 26, 0.7);
   line-height: 1.5;
   margin: 0 0 1rem 0;
   max-width: 600px;
@@ -116,16 +116,17 @@
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .btn-icon {
@@ -149,9 +150,9 @@
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 154, 118, 0.2);
   border-radius: 16px;
   padding: 1rem;
   text-align: center;
@@ -160,13 +161,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 15px 40px rgba(255, 154, 118, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 154, 118, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
@@ -182,14 +184,14 @@
 
 .feature-card h3 {
   font-size: 1.1rem;
-  color: #ffffff;
+  color: #1a1a1a;
   margin: 0 0 0.25rem 0;
   font-weight: 700;
 }
 
 .feature-card p {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(26, 26, 26, 0.6);
   margin: 0;
 }
 
@@ -225,7 +227,7 @@
   
   .hero-title {
     margin-bottom: 0.5rem;
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
   }
   
   .hero-subtitle {
@@ -234,29 +236,9 @@
     padding: 0 0.5rem;
   }
   
+  /* Hide feature cards on mobile devices */
   .hero-features {
-    grid-template-columns: 1fr;
-    gap: 0.875rem;
-    max-width: 320px;
-    padding: 0;
-  }
-
-  .feature-card {
-    padding: 0.875rem;
-    min-height: 100px;
-  }
-
-  .feature-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .feature-card h3 {
-    font-size: 1rem;
-  }
-
-  .feature-card p {
-    font-size: 0.8rem;
+    display: none;
   }
   
   /* Hero Section Buttons - More Specific Selectors for Mobile */
@@ -291,33 +273,16 @@
   }
 
   .hero-title {
-    font-size: clamp(1.4rem, 9vw, 2rem);
+    font-size: clamp(2.25rem, 11vw, 3rem);
   }
 
   .hero-subtitle {
     font-size: 0.85rem;
   }
   
+  /* Feature cards already hidden on tablet, keep hidden on mobile */
   .hero-features {
-    max-width: 280px;
-    gap: 0.75rem;
-  }
-
-  .feature-card {
-    padding: 0.75rem;
-    min-height: 90px;
-  }
-
-  .feature-icon {
-    font-size: 1.4rem;
-  }
-
-  .feature-card h3 {
-    font-size: 0.95rem;
-  }
-
-  .feature-card p {
-    font-size: 0.75rem;
+    display: none;
   }
 
   /* Hero Section Buttons - Extra Specific for Very Small Devices */
