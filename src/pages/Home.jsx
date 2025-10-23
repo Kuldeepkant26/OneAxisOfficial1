@@ -8,7 +8,7 @@ import Testimonials from '../components/Testimonials';
 import Statistics from '../components/Statistics';
 import CTA from '../components/CTA';
 import FAQ from '../components/FAQ';
-
+import Footer from '../components/Footer';
 import Hyperspeed from '../../Reactbits/Hyperspeed/Hyperspeed';
 import { HiLightningBolt } from 'react-icons/hi';
 import { MdDesignServices } from 'react-icons/md';
@@ -20,7 +20,7 @@ const Home = () => {
             {/* Section 1 - Hero Section */}
             <div className="section section-1" style={{ zIndex: 1 }}>
                 <Hyperspeed></Hyperspeed>
-                
+
                 {/* Hero Content */}
                 <div className="hero-content">
                     <div className="hero-text">
@@ -35,13 +35,13 @@ const Home = () => {
                             <button className="btn-primary">
                                 Get Started
                                 <svg className="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </button>
                             <button className="btn-secondary">View Our Work</button>
                         </div>
                     </div>
-                    
+
                     <div className="hero-features">
                         <div className="feature-card">
                             <div className="feature-icon"><HiLightningBolt /></div>
@@ -60,7 +60,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-              
+
             </div>
 
             {/* Section 2 - Add your content here */}
@@ -69,20 +69,21 @@ const Home = () => {
                 <MobileDev></MobileDev>
                 <WebSaaSDev></WebSaaSDev>
                 <InteriorShowcase></InteriorShowcase>
-                
+
                 {/* Testimonials Section */}
                 <Testimonials />
-                
+
                 {/* Statistics Section */}
                 <Statistics />
-                
+
                 {/* CTA Section */}
                 <CTA />
-                
+
                 {/* FAQ Section */}
                 <FAQ />
+                <Footer />
             </div>
-        
+
         </div>
     );
 };

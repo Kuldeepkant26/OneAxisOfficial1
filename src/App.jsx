@@ -15,7 +15,7 @@ function App() {
         <Route path="/interior-design" element={<InteriorDesign />} />
         <Route path="/softwares" element={<Softwares />} />
       </Routes>
-      <Footer />
+     
     </>
   )
 }

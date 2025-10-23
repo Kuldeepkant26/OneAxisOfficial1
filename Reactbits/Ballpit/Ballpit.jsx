@@ -349,13 +349,14 @@ function L() {
 
 function TouchStart(e) {
   if (e.touches.length > 0) {
-    e.preventDefault();
     A.x = e.touches[0].clientX;
     A.y = e.touches[0].clientY;
 
+    let touchedCanvas = false;
     for (const [elem, t] of b) {
       const rect = elem.getBoundingClientRect();
       if (D(rect)) {
+        touchedCanvas = true;
         t.touching = true;
         P(t, rect);
         if (!t.hover) {
@@ -365,20 +366,26 @@ function TouchStart(e) {
         t.onMove(t);
       }
     }
+    
+    // Only preventDefault if actually touching a canvas
+    if (touchedCanvas) {
+      e.preventDefault();
+    }
   }
 }
 
 function TouchMove(e) {
   if (e.touches.length > 0) {
-    e.preventDefault();
     A.x = e.touches[0].clientX;
     A.y = e.touches[0].clientY;
 
+    let touchedCanvas = false;
     for (const [elem, t] of b) {
       const rect = elem.getBoundingClientRect();
       P(t, rect);
 
       if (D(rect)) {
+        touchedCanvas = true;
         if (!t.hover) {
           t.hover = true;
           t.touching = true;
@@ -388,6 +395,11 @@ function TouchMove(e) {
       } else if (t.hover && t.touching) {
         t.onMove(t);
       }
+    }
+    
+    // Only preventDefault if actually touching a canvas
+    if (touchedCanvas) {
+      e.preventDefault();
     }
   }
 }
@@ -704,23 +716,32 @@ function createBallpit(e, t = {}) {
   const r = new a();
   let c = false;
 
-  e.style.touchAction = "none";
-  e.style.userSelect = "none";
-  e.style.webkitUserSelect = "none";
+  // Reset touch styles before applying interactive overrides
+  e.style.touchAction = "";
+  e.style.userSelect = "";
+  e.style.webkitUserSelect = "";
 
-  const h = S({
-    domElement: e,
-    onMove() {
-      n.setFromCamera(h.nPosition, i.camera);
-      i.camera.getWorldDirection(o.normal);
-      n.ray.intersectPlane(o, r);
-      s.physics.center.copy(r);
-      s.config.controlSphere0 = true;
-    },
-    onLeave() {
-      s.config.controlSphere0 = false;
-    },
-  });
+  // Only set touch styles and enable interaction if interactive mode is enabled
+  let h = null;
+  if (t.interactive !== false) {
+    e.style.touchAction = "none";
+    e.style.userSelect = "none";
+    e.style.webkitUserSelect = "none";
+
+    h = S({
+      domElement: e,
+      onMove() {
+        n.setFromCamera(h.nPosition, i.camera);
+        i.camera.getWorldDirection(o.normal);
+        n.ray.intersectPlane(o, r);
+        s.physics.center.copy(r);
+        s.config.controlSphere0 = true;
+      },
+      onLeave() {
+        s.config.controlSphere0 = false;
+      },
+    });
+  }
   function initialize(e) {
     if (s) {
       i.clear();
@@ -748,13 +769,13 @@ function createBallpit(e, t = {}) {
       c = !c;
     },
     dispose() {
-      h.dispose();
+      if (h) h.dispose();
       i.dispose();
     },
   };
 }
 
-const Ballpit = ({ className = "", followCursor = true, ...props }) => {
+const Ballpit = ({ className = "", followCursor = true, interactive = true, ...props }) => {
   const canvasRef = useRef(null);
   const spheresInstanceRef = useRef(null);
 
@@ -762,18 +783,24 @@ const Ballpit = ({ className = "", followCursor = true, ...props }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    if (spheresInstanceRef.current) {
+      spheresInstanceRef.current.dispose();
+      spheresInstanceRef.current = null;
+    }
+
     spheresInstanceRef.current = createBallpit(canvas, {
       followCursor,
+      interactive,
       ...props,
     });
 
     return () => {
       if (spheresInstanceRef.current) {
         spheresInstanceRef.current.dispose();
+        spheresInstanceRef.current = null;
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [followCursor, interactive, props.gravity, props.count, props.colors]);
 
   return (
     <canvas
