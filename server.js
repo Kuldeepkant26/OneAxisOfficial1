@@ -9,6 +9,14 @@ dotenv.config();
 // Render provides PORT, fallback to EMAIL_SERVER_PORT for local dev
 const PORT = process.env.PORT || process.env.EMAIL_SERVER_PORT || 5000;
 
+// Log loaded environment variables (without exposing passwords)
+console.log('Environment check:');
+console.log('- SMTP_HOST:', process.env.SMTP_HOST || 'NOT SET');
+console.log('- SMTP_PORT:', process.env.SMTP_PORT || 'NOT SET');
+console.log('- SMTP_USER:', process.env.SMTP_USER || 'NOT SET');
+console.log('- SMTP_PASS:', process.env.SMTP_PASS ? '***SET***' : 'NOT SET');
+console.log('- CONTACT_RECEIVER:', process.env.CONTACT_RECEIVER || 'NOT SET');
+
 // Basic config check to help developers diagnose missing SMTP settings quickly
 if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
   console.warn('\n[Warning] SMTP configuration appears incomplete.\n' +
