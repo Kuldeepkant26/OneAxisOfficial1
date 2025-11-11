@@ -74,6 +74,17 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // Health check endpoint
+  if (req.method === 'GET' && req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'application/json', ...headers });
+    res.end(JSON.stringify({ 
+      status: 'ok', 
+      message: 'OneAxis Email API is running',
+      endpoint: '/send-email (POST)'
+    }));
+    return;
+  }
+
   if (req.method === 'POST' && req.url === '/send-email') {
     let body = '';
     req.on('data', (chunk) => { body += chunk; });
