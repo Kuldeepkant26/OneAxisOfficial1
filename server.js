@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-env node */
 import http from 'http';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -9,57 +9,53 @@ dotenv.config();
 // Render provides PORT, fallback to EMAIL_SERVER_PORT for local dev
 const PORT = process.env.PORT || process.env.EMAIL_SERVER_PORT || 5000;
 
-// Log loaded environment variables (without exposing passwords)
+// Log loaded environment variables
 console.log('Environment check:');
-console.log('- SMTP_HOST:', process.env.SMTP_HOST || 'NOT SET');
-console.log('- SMTP_PORT:', process.env.SMTP_PORT || 'NOT SET');
-console.log('- SMTP_USER:', process.env.SMTP_USER || 'NOT SET');
-console.log('- SMTP_PASS:', process.env.SMTP_PASS ? '***SET***' : 'NOT SET');
+console.log('- RESEND_API_KEY:', process.env.RESEND_API_KEY ? '***SET***' : 'NOT SET');
 console.log('- CONTACT_RECEIVER:', process.env.CONTACT_RECEIVER || 'NOT SET');
 
-// Basic config check to help developers diagnose missing SMTP settings quickly
-if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-  console.warn('\n[Warning] SMTP configuration appears incomplete.\n' +
-    'Please create a .env file (copy .env.example) and set SMTP_HOST, SMTP_PORT, SMTP_USER and SMTP_PASS.\n' +
-    'Until these are provided, the server will not be able to connect to an SMTP provider and sending will fail.\n');
+// Initialize Resend
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
+if (!resend) {
+  console.warn('\n[Warning] RESEND_API_KEY not set. Email sending will fail.\n');
 }
-
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
-  auth: process.env.SMTP_USER && process.env.SMTP_PASS ? {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS
-  } : undefined,
-});
-
-transporter.verify()
-  .then(() => console.log('Nodemailer transporter is ready'))
-  .catch((err) => console.warn('Nodemailer verify failed (check SMTP settings):', err.message || err));
 
 const sendEmail = async (data) => {
   const { name, email, phone, service, message } = data;
-  const toAddress = process.env.CONTACT_RECEIVER || 'puneetverma2425@gmail.com';
-  const fromAddress = process.env.EMAIL_FROM || process.env.SMTP_USER || `no-reply@localhost`;
+  const toAddress = process.env.CONTACT_RECEIVER || 'oneaxissolutions@gmail.com';
+  const fromAddress = process.env.EMAIL_FROM || 'onboarding@resend.dev';
 
-  const mailOptions = {
+  if (!resend) {
+    throw new Error('Resend API key not configured');
+  }
+
+  const emailData = await resend.emails.send({
     from: fromAddress,
     to: toAddress,
-    subject: `New contact form submission - ${service || 'General Inquiry'}`,
-    text: `You have a new contact form submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\n\nMessage:\n${message}`,
+    subject: `New Contact Form Submission - ${service || 'General Inquiry'}`,
     html: `
-      <h3>New contact form submission</h3>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone}</p>
-      <p><strong>Service:</strong> ${service}</p>
-      <hr/>
-      <p>${message.replace(/\n/g, '<br/>')}</p>
-    `
-  };
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
+        <div style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <h2 style="color: #333; margin-bottom: 20px; border-bottom: 3px solid #4F46E5; padding-bottom: 10px;">
+            New Contact Form Submission
+          </h2>
+          <div style="margin: 20px 0;">
+            <p style="margin: 10px 0;"><strong style="color: #4F46E5;">Name:</strong> ${name}</p>
+            <p style="margin: 10px 0;"><strong style="color: #4F46E5;">Email:</strong> <a href="mailto:${email}" style="color: #4F46E5;">${email}</a></p>
+            <p style="margin: 10px 0;"><strong style="color: #4F46E5;">Phone:</strong> ${phone || 'Not provided'}</p>
+            <p style="margin: 10px 0;"><strong style="color: #4F46E5;">Service:</strong> ${service}</p>
+          </div>
+          <div style="margin-top: 20px; padding: 15px; background-color: #f3f4f6; border-radius: 5px;">
+            <p style="margin: 0 0 10px 0;"><strong style="color: #4F46E5;">Message:</strong></p>
+            <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${message}</p>
+          </div>
+        </div>
+      </div>
+    `,
+  });
 
-  return transporter.sendMail(mailOptions);
+  return emailData;
 };
 
 const server = http.createServer((req, res) => {
