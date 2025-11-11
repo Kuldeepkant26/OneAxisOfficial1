@@ -6,7 +6,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const PORT = process.env.EMAIL_SERVER_PORT || 5000;
+// Render provides PORT, fallback to EMAIL_SERVER_PORT for local dev
+const PORT = process.env.PORT || process.env.EMAIL_SERVER_PORT || 5000;
 
 // Basic config check to help developers diagnose missing SMTP settings quickly
 if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
@@ -107,6 +108,6 @@ const server = http.createServer((req, res) => {
   res.end('Not Found');
 });
 
-server.listen(PORT, () => {
-  console.log(`Email server running on http://localhost:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Email server running on port ${PORT}`);
 });
