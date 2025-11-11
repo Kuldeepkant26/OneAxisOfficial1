@@ -54,9 +54,16 @@ const sendEmail = async (data) => {
 };
 
 const server = http.createServer((req, res) => {
-  // Basic CORS handling so the Vite dev server can call this
+  // CORS handling - allow requests from your frontend domain
+  const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    process.env.FRONTEND_URL, // Your Render frontend URL
+  ].filter(Boolean);
+
+  const origin = req.headers.origin;
   const headers = {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': allowedOrigins.includes(origin) ? origin : '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };

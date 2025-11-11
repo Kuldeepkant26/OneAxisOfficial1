@@ -36,10 +36,8 @@ const ContactModal = ({ isOpen, onClose }) => {
         setIsSubmitting(true);
 
         try {
-            // Use Netlify function in production, local server in development
-            const apiUrl = import.meta.env.PROD 
-                ? '/.netlify/functions/send-email' 
-                : 'http://localhost:5000/send-email';
+            // Use environment variable for API URL or fallback to localhost
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/send-email';
             
             const response = await fetch(apiUrl, {
                 method: 'POST',

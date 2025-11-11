@@ -1,0 +1,40 @@
+services:
+  # Static Site - Frontend
+  - type: web
+    name: oneaxis-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  # Backend API - Email Service
+  - type: web
+    name: oneaxis-email-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: CONTACT_RECEIVER
+        sync: false
+      - key: EMAIL_SERVER_PORT
+        value: 10000
